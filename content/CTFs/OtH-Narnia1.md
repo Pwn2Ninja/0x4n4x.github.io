@@ -3,6 +3,7 @@ layout: default
 ---
 
 ## OvertheWire: Narnia0
+![Narnia](../../assets/images/Narnia0.png)
 
 Hola a todos!
 
@@ -25,6 +26,7 @@ puerto: 2226
 Ahora nos dirigimos al directorio /narnia/ y buscamos el código fuente y el binario, aquí está el código fuente:
 
 ```c
+#include <stdio.h>
 #include <stdlib.h>
 
 int main(){
@@ -79,3 +81,7 @@ Here is your chance: buf: AAAAAAAAAAAAAAAAAAAA
 whoami
 narnia1
 ```
+
+Y listo, así obtenemos una shell como el usuario narnia1, buscamos la pass en el directorio etc/narnia_pass/narnia1 y ya podemos logueranos como este usuario
+
+En el siguiente post hablaré sobre el siguiente desafío
