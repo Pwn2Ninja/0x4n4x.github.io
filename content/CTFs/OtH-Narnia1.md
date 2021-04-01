@@ -20,9 +20,33 @@ user: narnia0
 pass: narnia0
 puerto: 2226
 ```
-
 `ssh narnia0@narnia.labs.overthewire.org -p 2226`
 
 Ahora nos dirigimos al directorio /narnia/ y buscamos el código fuente y el binario, aquí está el código fuente:
 
+```c
+#include <stdlib.h>
 
+int main(){
+    long val=0x41414141;  /*Puts the value we want to overwrite on the stack*/
+    char buf[20];         /*Sets the buffer length to 20 bytes*/
+
+    printf("Correct val's value from 0x41414141 -> 0xdeadbeef!\n");
+    printf("Here is your chance: ");
+    scanf("%24s",&buf); /*Reads input into buffer (24 char limit on buffer, which is enough to fill the buffer and then the 4 bytes for deadbeef)*/
+
+    printf("buf: %s\n",buf); /*Prints contents of buffer*/
+    printf("val: 0x%08x\n",val); /*Outputs value we want to overwrite*/
+
+    if(val==0xdeadbeef){ /*If value == 0xdeadbeef*/
+        setreuid(geteuid(),geteuid()); /*Make the binary use the SUID and GUID*/
+        system("/bin/sh"); /*Run /bin/sh to spawn a shell*/
+    }
+    else { /*If the value isn't 0xdeadbeef then*/
+        printf("WAY OFF!!!!\n"); /*Print "WAY OFF!!!!" and then exit*/
+        exit(1);
+    }
+
+    return 0;
+}
+```
