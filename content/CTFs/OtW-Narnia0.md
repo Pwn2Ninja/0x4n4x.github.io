@@ -83,6 +83,6 @@ whoami
 narnia1
 ```
 
-Y listo, así obtenemos una shell como el usuario narnia1, buscamos la pass en el directorio etc/narnia_pass/narnia1 y ya podemos logueranos como este usuario
+Y listo, así obtenemos una shell como el usuario narnia1, buscamos la pass en el directorio etc/narnia_pass/narnia1 y ya podemos loguearnos como este usuario
 
 En el siguiente post hablaré sobre el siguiente desafío
